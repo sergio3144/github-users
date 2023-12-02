@@ -9,7 +9,14 @@ type DataInformation = {
   name:string,
   login:string,
   bio:string,
-  create_at: string
+  created_at: string,
+  public_repos: number,
+  followers: number,
+  following: number, 
+  location: string,
+  twitter_username: string,
+  html_url: string,
+  company: string, 
 }
 
 const CompletedApplication = ():JSX.Element => {
@@ -33,6 +40,8 @@ const CompletedApplication = ():JSX.Element => {
   /* useEffect(() => {
     console.log(dataInput?.login)
   }, [dataInput]) */
+
+  console.log(dataInput)
   
 
   return (
@@ -43,7 +52,19 @@ const CompletedApplication = ():JSX.Element => {
           handleChangeData={ handleChangeData }
           handleSubmitData={ handleSubmitData }
         />
-        <SectionUser/>
+        <SectionUser
+          nameUser={ dataInput?.name }
+          loginName={ dataInput?.login }
+          bioProfile={ dataInput?.bio }
+          numberRespos={ dataInput?.public_repos }
+          followers={ dataInput?.followers }
+          following={ dataInput?.following }
+          location={ dataInput?.location }
+          url={ dataInput?.html_url }
+          twitterUserName={ dataInput?.twitter_username }
+          company={ dataInput?.company }
+          created_at={ dataInput?.created_at }
+        />
       </main>
     </>
   )
